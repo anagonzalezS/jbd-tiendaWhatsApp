@@ -1,16 +1,25 @@
+/* src/components/Productos.css */
+
 /* Estilos para el contenedor del producto */
 .producto-card {
-    overflow: hidden; /* Para evitar que la imagen se desborde al hacer zoom */
+    width: 100%;
+    display: flex;
+    text-align: center;
+    padding: 8px;
+    position: relative;
+    flex-direction: column;
     cursor: pointer; /* Cambia el cursor a una mano cuando pasas sobre el producto */
-    text-align: center; /* Centramos el contenido */
+    overflow: hidden; /* Para evitar que la imagen se desborde al hacer zoom */
     border: 1px solid #eaeaea; /* Bordes ligeros */
-    padding: 15px; /* Espaciado interno */
-    position: relative; /* Para controlar el zoom */
     min-height: 350px; /* Asegura que haya suficiente espacio para el contenido */
+    background-color: #f8f9fa; /* Fondo gris claro */
+    transition: background-color 0.3s ease-in-out; /* Transición suave para el cambio de color */
 }
 
 /* Estilos para la imagen del producto con efecto zoom */
 .zoom-img {
+    max-width: 100%; /* Asegura que las imágenes no excedan el contenedor */
+    height: auto; /* Mantiene la relación de aspecto */
     transition: transform 0.3s ease-in-out; /* Transición suave */
 }
 
@@ -22,20 +31,12 @@
 /* Asegurar que el zoom se vea bien en dispositivos móviles */
 @media (hover: none) {
     .zoom-img {
-      transform: none; /* Desactiva el zoom en móviles si no es necesario */
+        transform: none; /* Desactiva el zoom en móviles si no es necesario */
     }
 
     .producto-card:active .zoom-img {
-      transform: scale(1.1); /* Aplica el zoom cuando el usuario toca el producto en dispositivos táctiles */
+        transform: scale(1.1); /* Aplica el zoom cuando el usuario toca el producto en dispositivos táctiles */
     }
-}
-
-/* Estilo del botón */
-.producto-card .btn {
-    border-color: #bbb; /* Borde más oscuro al pasar el mouse */
-    
-    padding: 5px 10px;
-    transition: background-color 0.3s, color 0.3s;
 }
 
 /* Estilo del botón personalizado */
@@ -48,7 +49,7 @@
     border-radius: 5px; /* Bordes redondeados */
     text-align: center;
     text-decoration: none; /* Sin subrayado */
-    transition: background-color 0.3s, border-color 0.3s; /* Transición suave */
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s; /* Transición suave */
     font-size: 14px; /* Tamaño de fuente */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
     max-width: 150px; /* Establecer un ancho máximo */
@@ -56,11 +57,26 @@
     margin-top: 10px; /* Espacio entre el input de cantidad y el botón */
 }
 
+/* Efecto al pasar el mouse sobre el botón */
 .btn-sutil:hover {
     background-color: #f8f8f8; /* Cambiar el color de fondo al pasar el mouse */
     border-color: #bbb; /* Borde más oscuro al pasar el mouse */
+    color: #007bff; /* Cambia el color del texto a celeste al pasar el mouse */
     cursor: pointer; /* Cambia el cursor a mano */
 }
+
+/* Estilos para la entrada de cantidad */
+.cantidad-container {
+    display: flex;
+    align-items: center; /* Alinea verticalmente el label y el input */
+    justify-content: center; /* Centra el contenido */
+}
+
+.cantidad-input {
+    width: 50px; /* Ajusta el tamaño de la entrada de cantidad */
+    margin-left: 5px; /* Espacio entre el label y el input */
+}
+
 /* Ajustar el tamaño de la fuente y el padding para móviles */
 @media (max-width: 576px) {
     .producto-card {
@@ -73,7 +89,16 @@
         font-size: 12px; /* Tamaño de fuente más pequeño */
     }
 
-    input[type="number"] {
-        width: 50px; /* Hacer el input de cantidad más pequeño */
+    .cantidad-input {
+        width: 40px; /* Hacer el input de cantidad más pequeño en móviles */
     }
+}
+
+/* Cambiar el color de la descripción al pasar el mouse sin cambiar el fondo */
+.descripcion {
+    transition: color 0.3s; /* Transición suave para el color */
+}
+
+.descripcion:hover {
+    color: #007bff; /* Color celeste al pasar el mouse sobre la descripción */
 }

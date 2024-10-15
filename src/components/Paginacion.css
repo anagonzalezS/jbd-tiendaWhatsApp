@@ -1,0 +1,22 @@
+/* src/components/Productos.css */
+.pagination {
+    margin-top: 20px; /* Espaciado entre los productos y la paginación */
+}
+
+.pagination .page-item {
+    margin: 0 5px; /* Espaciado entre los elementos de paginación */
+}
+
+.pagination .page-link {
+    cursor: pointer; /* Cambia el cursor a mano */
+}
+
+.pagination .page-item.disabled .page-link {
+    pointer-events: none; /* Desactiva el puntero en elementos deshabilitados */
+    color: #ccc; /* Color para el enlace deshabilitado */
+}
+
+.pagination .active .page-link {
+    background-color: #007bff; /* Color de fondo para la página activa */
+    color: white; /* Color del texto para la página activa */
+}

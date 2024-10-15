@@ -1,57 +1,38 @@
-import React, { useState } from 'react';
-import { Card, Button, Container, Row, Col } from 'react-bootstrap';
-import './Productos.css'; // Asegúrate de que esté tu archivo CSS
+// src/components/Productos.js
+import React  from 'react';
+import { Card, Button } from 'react-bootstrap';
+import './Productos.css'; // Asegúrate de importar los estilos
 
-const Productos = ({ productos = [] }) => {
-  // Estado para la cantidad de productos. Usa un objeto para manejar la cantidad de cada producto
-  const [cantidades, setCantidades] = useState({});
-
-  const handleCantidadChange = (id, value) => {
-    setCantidades((prev) => ({
-      ...prev,
-      [id]: value
-    }));
-  };
-
+const Productos = ({ productos }) => {
   return (
-    <Container id="tienda">
-      <Row>
-        {productos.map((producto) => {
-          // Obtener la cantidad actual del producto si existe, de lo contrario, usar 1
-          const cantidad = cantidades[producto.id] || 1;
-
-          return (
-            <Col key={producto.id} sm={6} md={4} lg={3} className="mb-4">
-              <Card className="producto-card">
-                <Card.Img variant="top" src={producto.imagen} alt={producto.nombre} className="zoom-img" />
-                <Card.Body>
-                  <Card.Title>{producto.nombre}</Card.Title>
-                  <Card.Text>Precio: ${producto.precio}</Card.Text>
-                  <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
-                    <label style={{ marginRight: '10px' }}>Cantidad:</label>
-                    <input 
-                      type="number" 
-                      value={cantidad} 
-                      min="1" 
-                      onChange={(e) => handleCantidadChange(producto.id, e.target.value)} // Actualiza la cantidad
-                      style={{ width: '60px', marginRight: '10px' }} // Estilo para el input de cantidad
-                    />
-                  </div>
-                  <Button 
-                    variant="light" // Color claro para el botón
-                    className="btn-sutil" // Aplicar la clase CSS personalizada
-                    href={`https://wa.me/91136545084?text=Hola,%20me%20gustaría%20comprar%20${producto.nombre}%20en%20cantidad%20${cantidad}`} 
-                    target="_blank"
-                  >
-                    Comprar por WhatsApp
-                  </Button>
-                </Card.Body>
-              </Card>
-            </Col>
-          );
-        })}
-      </Row>
-    </Container>
+    <div className="d-flex flex-wrap justify-content-center">
+      {productos.map((producto) => (
+        <Card key={producto.id} className="producto-card" style={{ margin: '10px', width: '18rem' }}>
+          <Card.Img variant="top" src={producto.imagen} alt={producto.nombre} className="zoom-img" />
+          <Card.Body>
+            <Card.Title>{producto.nombre}</Card.Title>
+            <Card.Text className="descripcion">{producto.descripcion}</Card.Text>
+            <Card.Text>Precio: ${producto.precio}</Card.Text>
+            <div className="cantidad-container">
+              <label htmlFor={`cantidad-${producto.id}`}>Cantidad:</label>
+              <input
+                type="number"
+                id={`cantidad-${producto.id}`}
+                min="1"
+                defaultValue="1"
+                className="cantidad-input"
+              />
+            </div>
+            <Button
+              className="btn-sutil"
+              onClick={() => alert(`Comprar ${producto.nombre} (Cantidad: ${document.getElementById(`cantidad-${producto.id}`).value}) por WhatsApp`)}
+            >
+              Comprar por WhatsApp
+            </Button>
+          </Card.Body>
+        </Card>
+      ))}
+    </div>
   );
 };
 
