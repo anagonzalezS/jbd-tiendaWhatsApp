@@ -1,0 +1,31 @@
+.hero {
+    background-image: url('/public/img/fondo.png'); /* Prueba esta ruta relativa */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+    color: white;
+}
+  
+  .main-content {
+    height: 80vh;
+  }
+  
+  .scroll-down {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    color: white;
+  }
+  
+  .scroll-down a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .scroll-down a:hover {
+    color: #ddd;
+  }
+  

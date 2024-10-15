@@ -1,0 +1,79 @@
+/* Estilos para el contenedor del producto */
+.producto-card {
+    overflow: hidden; /* Para evitar que la imagen se desborde al hacer zoom */
+    cursor: pointer; /* Cambia el cursor a una mano cuando pasas sobre el producto */
+    text-align: center; /* Centramos el contenido */
+    border: 1px solid #eaeaea; /* Bordes ligeros */
+    padding: 15px; /* Espaciado interno */
+    position: relative; /* Para controlar el zoom */
+    min-height: 350px; /* Asegura que haya suficiente espacio para el contenido */
+}
+
+/* Estilos para la imagen del producto con efecto zoom */
+.zoom-img {
+    transition: transform 0.3s ease-in-out; /* Transición suave */
+}
+
+/* Efecto de zoom al hacer hover */
+.producto-card:hover .zoom-img {
+    transform: scale(1.1); /* Aumenta la escala al 110% */
+}
+
+/* Asegurar que el zoom se vea bien en dispositivos móviles */
+@media (hover: none) {
+    .zoom-img {
+      transform: none; /* Desactiva el zoom en móviles si no es necesario */
+    }
+
+    .producto-card:active .zoom-img {
+      transform: scale(1.1); /* Aplica el zoom cuando el usuario toca el producto en dispositivos táctiles */
+    }
+}
+
+/* Estilo del botón */
+.producto-card .btn {
+    border-color: #bbb; /* Borde más oscuro al pasar el mouse */
+    
+    padding: 5px 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Estilo del botón personalizado */
+.btn-sutil {
+    display: inline-block;
+    padding: 8px 12px; /* Aumentar ligeramente el padding para mejor apariencia */
+    color: #191919; /* Color del texto oscuro */
+    background-color: #fff; /* Color de fondo blanco */
+    border: 1px solid #ccc; /* Borde gris */
+    border-radius: 5px; /* Bordes redondeados */
+    text-align: center;
+    text-decoration: none; /* Sin subrayado */
+    transition: background-color 0.3s, border-color 0.3s; /* Transición suave */
+    font-size: 14px; /* Tamaño de fuente */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    max-width: 150px; /* Establecer un ancho máximo */
+    margin-left: 10px; /* Espacio entre el input y el botón */
+    margin-top: 10px; /* Espacio entre el input de cantidad y el botón */
+}
+
+.btn-sutil:hover {
+    background-color: #f8f8f8; /* Cambiar el color de fondo al pasar el mouse */
+    border-color: #bbb; /* Borde más oscuro al pasar el mouse */
+    cursor: pointer; /* Cambia el cursor a mano */
+}
+/* Ajustar el tamaño de la fuente y el padding para móviles */
+@media (max-width: 576px) {
+    .producto-card {
+        padding: 10px; /* Menos espaciado interno */
+        min-height: 300px; /* Ajusta la altura mínima */
+    }
+
+    .btn-sutil {
+        padding: 6px 10px; /* Menor padding en el botón para móviles */
+        font-size: 12px; /* Tamaño de fuente más pequeño */
+    }
+
+    input[type="number"] {
+        width: 50px; /* Hacer el input de cantidad más pequeño */
+    }
+}

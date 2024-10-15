@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React from 'react';
+import Navbar from './components/Navbar.jsx'; // Asegúrate de que coincida con el nombre del archivo
+import Home from './components/Home';
+import Productos from './components/Productos.jsx';
+import Ubicacion from './components/Ubicacion.jsx';
+import Contacto from './components/Contacto'; 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar /> {/* Usa Nav_bar si este es el nombre correcto */}
+      <Home />
+      <Productos />
+      <Ubicacion />
+      <Contacto />
+
     </div>
   );
 }
