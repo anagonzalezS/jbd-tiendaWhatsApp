@@ -1,18 +1,22 @@
+// src/App.js
 import React from 'react';
-import Navbar from './components/Navbar.jsx'; // Asegúrate de que coincida con el nombre del archivo
+import { Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar.jsx';
 import Home from './components/Home';
 import Productos from './components/Productos.jsx';
 import Ubicacion from './components/Ubicacion.jsx';
-import Contacto from './components/Contacto'; 
+import Contacto from './components/Contacto';
+
 function App() {
   return (
     <div>
-      <Navbar /> {/* Usa Nav_bar si este es el nombre correcto */}
-      <Home />
-      <Productos />
-      <Ubicacion />
-      <Contacto />
-
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/productos" element={<Productos />} />
+        <Route path="/ubicacion" element={<Ubicacion />} />
+        <Route path="/contacto" element={<Contacto />} />
+      </Routes>
     </div>
   );
 }
