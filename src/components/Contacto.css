@@ -1,23 +1,34 @@
-.contacto-container {
-    background-color: #f8f9fa; /* Fondo claro */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .contact-info {
-    padding: 20px;
-    border: 1px solid #dee2e6; /* Bordes sutiles */
-    border-radius: 10px;
-    background-color: #ffffff; /* Fondo blanco para cada tarjeta */
-    transition: transform 0.2s; /* Animación suave */
-  }
-  
-  .contact-info:hover {
-    transform: translateY(-5px); /* Elevación al pasar el mouse */
-  }
-  
-  h5 {
-    font-weight: bold; /* Negrita para el título */
-  }
-  
+
+
+/* Estilos para cada sección de información de contacto */
+.contact-info {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: transparent; /* Sin fondo */
+  transition: transform 0.2s; /* Animación suave */
+}
+
+.contact-info:hover {
+  transform: translateY(-5px); /* Elevación al pasar el mouse */
+}
+
+/* Títulos con negrita */
+h5 {
+  font-weight: bold;
+}
+
+/* Estilos personalizados para los íconos */
+.phone-icon,
+.gmail-icon {
+  color: #6c757d; /* Color gris sutil */
+  font-size: 1.2rem; /* Tamaño más pequeño para los íconos */
+}
+
+.contact-link {
+  color: #007bff; /* Azul estándar para enlaces */
+  text-decoration: none;
+}
+
+.contact-link:hover {
+  text-decoration: underline; /* Subrayado al pasar el mouse */
+}

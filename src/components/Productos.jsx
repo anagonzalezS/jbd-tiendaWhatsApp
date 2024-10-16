@@ -1,9 +1,24 @@
-// src/components/Productos.js
-import React  from 'react';
-import { Card, Button } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Card } from 'react-bootstrap';
 import './Productos.css'; // Asegúrate de importar los estilos
 
 const Productos = ({ productos }) => {
+  // Crear un estado para almacenar la cantidad por cada producto
+  const [cantidades, setCantidades] = useState(
+    productos.reduce((acc, producto) => {
+      acc[producto.id] = 1; // Iniciar la cantidad en 1 para cada producto
+      return acc;
+    }, {})
+  );
+
+  // Función para manejar el cambio en la cantidad de un producto
+  const handleCantidadChange = (id, nuevaCantidad) => {
+    setCantidades((prevCantidades) => ({
+      ...prevCantidades,
+      [id]: nuevaCantidad
+    }));
+  };
+
   return (
     <div className="d-flex flex-wrap justify-content-center">
       {productos.map((producto) => (
@@ -19,16 +34,19 @@ const Productos = ({ productos }) => {
                 type="number"
                 id={`cantidad-${producto.id}`}
                 min="1"
-                defaultValue="1"
+                value={cantidades[producto.id]}
+                onChange={(e) => handleCantidadChange(producto.id, e.target.value)}
                 className="cantidad-input"
               />
             </div>
-            <Button
+            {/* Enlace de WhatsApp que incluye la cantidad seleccionada */}
+            <a
+              href={`https://wa.me/+5491136545084?text=Quiero%20comprar%20${producto.nombre}%20(Cantidad:%20${cantidades[producto.id]})`}
               className="btn-sutil"
-              onClick={() => alert(`Comprar ${producto.nombre} (Cantidad: ${document.getElementById(`cantidad-${producto.id}`).value}) por WhatsApp`)}
             >
-              Comprar por WhatsApp
-            </Button>
+              <i className="fab fa-whatsapp whatsapp-icon" aria-hidden="true"></i>
+              Comprar
+            </a>
           </Card.Body>
         </Card>
       ))}

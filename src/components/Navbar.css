@@ -1,31 +1,62 @@
 .hero {
-    background-image: url('/public/img/fondo.png'); /* Prueba esta ruta relativa */
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    position: relative;
-    color: white;
+  background-image: url('/public/img/fondo.png'); /* Prueba esta ruta relativa */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  position: relative;
+  color: white;
 }
-  
-  .main-content {
-    height: 80vh;
+
+.main-content {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Animación de aparición */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(20px); /* Efecto de deslizamiento */
   }
-  
-  .scroll-down {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 2rem;
-    color: white;
+  to {
+      opacity: 1;
+      transform: translateY(0); /* Posición final */
   }
-  
-  .scroll-down a {
-    color: white;
-    text-decoration: none;
-  }
-  
-  .scroll-down a:hover {
-    color: #ddd;
-  }
-  
+}
+
+/* Aplica la animación al título */
+.main-content h1 {
+  animation: fadeIn 2s ease-in-out; /* Duración de 2s */
+  opacity: 0; /* Inicia invisible */
+  animation-fill-mode: forwards; /* Mantiene la opacidad final */
+}
+
+/* Aplica la animación al párrafo */
+.main-content p {
+  animation: fadeIn 3s ease-in-out; /* Duración de 3s */
+  opacity: 0;
+  animation-fill-mode: forwards;
+  animation-delay: 0.5s; /* Aparece 0.5s después del título */
+}
+
+.scroll-down {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  color: white;
+}
+
+.scroll-down a {
+  color: white;
+  text-decoration: none;
+}
+
+.scroll-down a:hover {
+  color: #ddd;
+}

@@ -7,11 +7,10 @@ const Paginacion = ({ currentPage, setCurrentPage, totalItems, itemsPerPage }) =
   const maxVisiblePages = 5; // Número máximo de páginas visibles
   const halfVisible = Math.floor(maxVisiblePages / 2);
 
-  // Calcular las páginas que se mostrarán
   let startPage = Math.max(1, currentPage - halfVisible);
   let endPage = Math.min(totalPages, currentPage + halfVisible);
 
-  // Asegúrate de que haya siempre un número fijo de botones visibles
+  // Ajuste para siempre mostrar un número fijo de botones
   if (endPage - startPage < maxVisiblePages - 1) {
     if (startPage === 1) {
       endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);

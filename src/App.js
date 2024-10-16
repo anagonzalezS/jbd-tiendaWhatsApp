@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+
 import Navbar from './components/Navbar.jsx';
 import Home from './components/Home.jsx';
 import Productos from './components/Productos.jsx';
 import Ubicacion from './components/Ubicacion.jsx';
 import Contacto from './components/Contacto.jsx';
+import Footer from './components/Footer.jsx'; // Importa el componente Footer
 
 function App() {
   const [productos, setProductos] = useState([]); // Aquí estás definiendo el estado de productos
@@ -28,6 +30,9 @@ function App() {
       <section id="contacto">
         <Contacto />
       </section>
+
+      {/* Footer al final de la página */}
+      <Footer /> {/* Aquí se incluye el footer */}
     </div>
   );
 }

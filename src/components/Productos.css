@@ -41,8 +41,9 @@
 
 /* Estilo del botón personalizado */
 .btn-sutil {
-    display: inline-block;
-    padding: 8px 12px; /* Aumentar ligeramente el padding para mejor apariencia */
+    display: inline-flex; /* Cambia a flex para centrar icono y texto */
+    align-items: center; /* Alinea verticalmente el icono y el texto */
+    padding: 10px 16px; /* Aumentar el padding para mejor apariencia */
     color: #191919; /* Color del texto oscuro */
     background-color: #fff; /* Color de fondo blanco */
     border: 1px solid #ccc; /* Borde gris */
@@ -50,19 +51,30 @@
     text-align: center;
     text-decoration: none; /* Sin subrayado */
     transition: background-color 0.3s, border-color 0.3s, color 0.3s; /* Transición suave */
-    font-size: 14px; /* Tamaño de fuente */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-    max-width: 150px; /* Establecer un ancho máximo */
+    font-size: 16px; /* Tamaño de fuente más grande */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra más prominente */
+    max-width: 180px; /* Establecer un ancho máximo */
     margin-left: 10px; /* Espacio entre el input y el botón */
     margin-top: 10px; /* Espacio entre el input de cantidad y el botón */
 }
-
 /* Efecto al pasar el mouse sobre el botón */
 .btn-sutil:hover {
-    background-color: #f8f8f8; /* Cambiar el color de fondo al pasar el mouse */
-    border-color: #bbb; /* Borde más oscuro al pasar el mouse */
-    color: #007bff; /* Cambia el color del texto a celeste al pasar el mouse */
+    background-color: #25D366; /* Cambiar el color de fondo al pasar el mouse al color de WhatsApp */
+    border-color: #25D366; /* Cambiar el borde al color de WhatsApp */
+    color: #128C7E; /* Verde más oscuro para el icono al pasar el mouse */
+
     cursor: pointer; /* Cambia el cursor a mano */
+}
+/* Estilo para el icono de WhatsApp */
+.whatsapp-icon {
+    color: #25D366; /* Color verde característico de WhatsApp */
+    margin-right: 5px; /* Espacio entre el icono y el texto */
+    transition: color 0.3s; /* Transición suave al cambiar de color */
+}
+
+/* Mantener el color del icono verde al pasar el mouse */
+.btn-sutil:hover .whatsapp-icon {
+    color: #128C7E; /* Verde más oscuro para el icono al pasar el mouse */
 }
 
 /* Estilos para la entrada de cantidad */
