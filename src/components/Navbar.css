@@ -33,6 +33,7 @@
   animation: fadeIn 2s ease-in-out; /* Duración de 2s */
   opacity: 0; /* Inicia invisible */
   animation-fill-mode: forwards; /* Mantiene la opacidad final */
+  animation-delay: 0s; /* Inicia inmediatamente */
 }
 
 /* Aplica la animación al párrafo */
@@ -43,6 +44,7 @@
   animation-delay: 0.5s; /* Aparece 0.5s después del título */
 }
 
+/* Flecha hacia abajo */
 .scroll-down {
   position: absolute;
   bottom: 20px;
@@ -59,4 +61,18 @@
 
 .scroll-down a:hover {
   color: #ddd;
+}
+@media (max-width: 768px) {
+  .main-content h1 {
+    animation-duration: 1.5s; /* Reduce la duración de la animación en móviles */
+  }
+
+  .main-content p {
+    animation-duration: 2s;
+    animation-delay: 0.3s; /* Acelera el tiempo en que aparece el párrafo en móviles */
+  }
+
+  .scroll-down {
+    font-size: 1.5rem; /* Ajusta el tamaño de la flecha para pantallas pequeñas */
+  }
 }
