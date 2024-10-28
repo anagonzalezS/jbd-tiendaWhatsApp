@@ -16,11 +16,12 @@ function App() {
       <Navbar />
 
       {/* Secciones de la página */}
-      <section id="productos">
-        <Home productos={productos} setProductos={setProductos} /> {/* Pasar las props */}
+      <section id="home">
+        <Home productos={productos} setProductos={setProductos} />
       </section>
-      <section id="productos">
-        <Productos productos={productos} setProductos={setProductos} /> {/* Asegúrate de que se usen las props */}
+
+      <section id="productos-list">
+        <Productos productos={productos} setProductos={setProductos} />
       </section>
 
       <section id="ubicacion">
@@ -32,7 +33,7 @@ function App() {
       </section>
 
       {/* Footer al final de la página */}
-      <Footer /> {/* Aquí se incluye el footer */}
+      <Footer />
     </div>
   );
 }
