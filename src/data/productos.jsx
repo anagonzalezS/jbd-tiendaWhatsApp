@@ -18,7 +18,7 @@ const productos = [
   },
   { 
       id: 3, 
-      nombre: 'Termo', 
+      nombre: 'Termos', 
       categoria: 'Equipo de mate', 
       descripcion: 'Colores disponibles.', 
       precio: 24500, 
@@ -168,7 +168,6 @@ const productos = [
       precio: 29000, 
       imagen: '/img/product (26).jpeg' 
   },
-  // Continúa con el mismo estilo para los demás productos
 ];
 
 export default productos;
