@@ -1,116 +1,141 @@
-/* src/components/Productos.css */
+.productos-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: #f8f9fa; /* Texto claro */
+}
 
-/* Estilos para el contenedor del producto */
+.sort-by-container {
+  display: flex;
+  justify-content: flex-end; /* Alinea el contenido a la derecha */
+  align-items: center; /* Centra verticalmente */
+  margin-right: 15px; /* Espaciado a la derecha */
+}
+
+.orden-select-elegante {
+  margin-left: 10px; /* Espacio entre la etiqueta y el menú desplegable */
+  padding: 0.5rem; /* Ajusta el tamaño del menú desplegable */
+}
+
+.text-label {
+  color: gray; /* Cambia a cualquier tono de gris que prefieras */
+}
+
+/* Estilos para las tarjetas de productos */
 .producto-card {
-    width: 100%;
-    display: flex;
-    text-align: center;
-    padding: 8px;
-    position: relative;
-    flex-direction: column;
-    cursor: pointer; /* Cambia el cursor a una mano cuando pasas sobre el producto */
-    overflow: hidden; /* Para evitar que la imagen se desborde al hacer zoom */
-    border: 1px solid #eaeaea; /* Bordes ligeros */
-    min-height: 350px; /* Asegura que haya suficiente espacio para el contenido */
-    background-color: #f8f9fa; /* Fondo gris claro */
-    transition: background-color 0.3s ease-in-out; /* Transición suave para el cambio de color */
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
+  padding: 20px;
+  margin: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Estilos para la imagen del producto con efecto zoom */
+.producto-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Estilos para los íconos de WhatsApp */
+.boton-sutil {
+  background-color: #25D366; /* Color de fondo de WhatsApp */
+  color: white;
+}
+
+/* Estilos de zoom para la imagen del producto */
 .zoom-img {
-    max-width: 100%; /* Asegura que las imágenes no excedan el contenedor */
-    height: auto; /* Mantiene la relación de aspecto */
-    transition: transform 0.3s ease-in-out; /* Transición suave */
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
-/* Efecto de zoom al hacer hover */
-.producto-card:hover .zoom-img {
-    transform: scale(1.1); /* Aumenta la escala al 110% */
+.zoom-img:hover {
+  transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
 }
 
-/* Asegurar que el zoom se vea bien en dispositivos móviles */
-@media (hover: none) {
-    .zoom-img {
-        transform: none; /* Desactiva el zoom en móviles si no es necesario */
-    }
-
-    .producto-card:active .zoom-img {
-        transform: scale(1.1); /* Aplica el zoom cuando el usuario toca el producto en dispositivos táctiles */
-    }
-}
-
-/* Estilo del botón personalizado */
-.btn-sutil {
-    display: inline-flex; /* Cambia a flex para centrar icono y texto */
-    align-items: center; /* Alinea verticalmente el icono y el texto */
-    padding: 10px 16px; /* Aumentar el padding para mejor apariencia */
-    color: #191919; /* Color del texto oscuro */
-    background-color: #fff; /* Color de fondo blanco */
-    border: 1px solid #ccc; /* Borde gris */
-    border-radius: 5px; /* Bordes redondeados */
-    text-align: center;
-    text-decoration: none; /* Sin subrayado */
-    transition: background-color 0.3s, border-color 0.3s, color 0.3s; /* Transición suave */
-    font-size: 16px; /* Tamaño de fuente más grande */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra más prominente */
-    max-width: 180px; /* Establecer un ancho máximo */
-    margin-left: 10px; /* Espacio entre el input y el botón */
-    margin-top: 10px; /* Espacio entre el input de cantidad y el botón */
-}
-/* Efecto al pasar el mouse sobre el botón */
-.btn-sutil:hover {
-    background-color: #25D366; /* Cambiar el color de fondo al pasar el mouse al color de WhatsApp */
-    border-color: #25D366; /* Cambiar el borde al color de WhatsApp */
-    color: #128C7E; /* Verde más oscuro para el icono al pasar el mouse */
-
-    cursor: pointer; /* Cambia el cursor a mano */
-}
-/* Estilo para el icono de WhatsApp */
-.whatsapp-icon {
-    color: #25D366; /* Color verde característico de WhatsApp */
-    margin-right: 5px; /* Espacio entre el icono y el texto */
-    transition: color 0.3s; /* Transición suave al cambiar de color */
-}
-
-/* Mantener el color del icono verde al pasar el mouse */
-.btn-sutil:hover .whatsapp-icon {
-    color: #128C7E; /* Verde más oscuro para el icono al pasar el mouse */
-}
-
-/* Estilos para la entrada de cantidad */
+/* Estilo para el input de cantidad */
 .cantidad-container {
-    display: flex;
-    align-items: center; /* Alinea verticalmente el label y el input */
-    justify-content: center; /* Centra el contenido */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cantidad-input {
-    width: 50px; /* Ajusta el tamaño de la entrada de cantidad */
-    margin-left: 5px; /* Espacio entre el label y el input */
+  width: 60px; /* Asegura que el campo de cantidad tenga un ancho adecuado */
+  text-align: center; /* Centra el texto en el input */
+  border: 1px solid #ccc; /* Agrega un borde suave */
+  border-radius: 5px; /* Bordes redondeados */
+  margin-left: 10px; /* Espacio a la izquierda */
+  margin-right: 10px; /* Espacio a la derecha */
 }
 
-/* Ajustar el tamaño de la fuente y el padding para móviles */
-@media (max-width: 576px) {
-    .producto-card {
-        padding: 10px; /* Menos espaciado interno */
-        min-height: 300px; /* Ajusta la altura mínima */
-    }
-
-    .btn-sutil {
-        padding: 6px 10px; /* Menor padding en el botón para móviles */
-        font-size: 12px; /* Tamaño de fuente más pequeño */
-    }
-
-    .cantidad-input {
-        width: 40px; /* Hacer el input de cantidad más pequeño en móviles */
-    }
+.cantidad-input::-webkit-inner-spin-button,
+.cantidad-input::-webkit-outer-spin-button {
+  -webkit-appearance: none; /* Chrome, Safari, Edge */
+  margin: 0;
 }
 
-/* Cambiar el color de la descripción al pasar el mouse sin cambiar el fondo */
-.descripcion {
-    transition: color 0.3s; /* Transición suave para el color */
+
+
+/* Estilos para el sidebar */
+.sidebar {
+  background-color: #343a40; /* Color del fondo del sidebar */
+  padding: 20px;
+  border-radius: 10px;
 }
 
-.descripcion:hover {
-    color: #007bff; /* Color celeste al pasar el mouse sobre la descripción */
+.sidebar-item {
+  cursor: pointer;
+  color: #f8f9fa; /* Color claro para el texto del sidebar */
+}
+
+.sidebar-item.active {
+  background-color: #007BFF; /* Color de fondo activo */
+  color: white; /* Color del texto activo */
+}
+
+/* Estilos para los botones */
+.boton-sutil {
+  margin: 20px auto;
+  display: block;
+  background-color: #25D366; /* Color de fondo de WhatsApp */
+  color: white; /* Texto en blanco para contraste */
+  border: none; /* Sin bordes */
+  padding: 10px 20px; /* Espaciado interno para un mejor tamaño */
+  border-radius: 5px; /* Bordes redondeados para suavizar el aspecto */
+  font-size: 16px; /* Tamaño de fuente para mayor legibilidad */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+}
+
+.boton-sutil:hover {
+  background-color: #1DAE4B; /* Color más oscuro al pasar el mouse */
+}
+
+
+.producto-titulo {
+  font-size: 1.2rem; /* Tamaño de fuente para destacar el título */
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #333; /* Color oscuro para visibilidad */
+}
+
+.producto-descripcion {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  font-size: 14px;
+  margin-bottom: 2;
+  letter-spacing: -0.4px; /* Ajusta el espaciado de las letras */
+}
+
+
+
+
+.producto-precio {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #000;
+  margin-top: 5px;
 }

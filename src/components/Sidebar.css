@@ -1,0 +1,41 @@
+.sidebar {
+    background-color: #f8f9fa;
+    border-right: 1px solid #e0e0e0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease; /* Transición suave al abrir/cerrar */
+}
+
+.sidebar-list {
+    padding: 0;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.sidebar-item {
+    cursor: pointer;
+    color: #5a5a5a;
+    padding: 12px 15px;
+    transition: background-color 0.2s, color 0.2s; /* Agregada transición al color */
+}
+
+/* Estilos específicos para móviles */
+@media (max-width: 769px) {
+    .sidebar {
+        position: fixed; /* Fijo para que permanezca visible */
+        top: 0;
+        left: 0;
+        width: 100%; /* Ocupar toda la anchura */
+        z-index: 1030; /* Asegurarse de que esté por encima de otros elementos */
+        transform: translateX(-100%); /* Comienza fuera de la vista */
+    }
+
+    .sidebar.show {
+        transform: translateX(0); /* Muestra la barra lateral */
+    }
+
+    .sidebar-item {
+        padding: 10px; /* Reduce el espaciado en móviles */
+    }
+}
