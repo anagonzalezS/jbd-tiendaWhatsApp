@@ -74,19 +74,31 @@ const Productos = React.forwardRef((props, ref) => {
       setShowAlert(false);
       const producto = productos.find(prod => prod.id === id);
       const cantidad = cantidades[id];
-
+  
       // Calcular el total
-      const total = (producto.precio * cantidad).toFixed(2); // Formato a dos decimales
+      const total = (producto.precio * cantidad).toLocaleString(); // Formato con comas para miles
       
       // Construir el mensaje para WhatsApp
-      const mensaje = `Hola, me gustaría comprar ${cantidad} unidades de ${producto.nombre} por $${producto.precio} cada una, total: $${total}.`;
+      let mensaje = `Hola, quiero comprar este` +
+                    `producto: ${producto.nombre}\n` +
+                    `Cantidad: ${cantidad}\n` +
+                    `Precio unitario: $${producto.precio.toLocaleString()}\n`; // Aseguramos que el precio también tenga comas
+  
+      // Solo mostrar el total si la cantidad es mayor a 1
+      if (cantidad > 1) {
+        mensaje += `Total: $${total}\n`;
+      }
+  
       const numeroWhatsApp = '5491136545084'; // Reemplaza esto con tu número de WhatsApp
       const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
-
+  
       // Redireccionar a WhatsApp
       window.open(urlWhatsApp, '_blank');
     }
   };
+  
+  
+
 
   return (
     <Container id="productos" ref={ref} className="productos-container">
@@ -132,8 +144,9 @@ const Productos = React.forwardRef((props, ref) => {
                       {producto.descripcion}
                     </Card.Text>
                     <Card.Text className="font-weight-bold" style={{ fontSize: '1.25rem' }}>
-                      <strong>${producto.precio}</strong>
+                      <strong>${producto.precio.toLocaleString('es-AR')}</strong>
                     </Card.Text>
+
                     <div className="cantidad-container">
                       <label htmlFor={`cantidad-${producto.id}`}>Cantidad:</label>
                       <input
