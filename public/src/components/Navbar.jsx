@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Navbar, Nav, Container, Button } from 'react-bootstrap';
 import './Navbar.css';
-import productos from '../data/productos';
+import productos from '../../../client/data/productos';
 
 const NavBar = React.forwardRef(({ productosRef, setProductos }, ref) => {
   const [, setCategoriaSeleccionada] = useState('Todos');
