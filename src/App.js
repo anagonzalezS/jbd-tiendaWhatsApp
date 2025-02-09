@@ -1,11 +1,10 @@
 import React, { useState, useRef } from 'react';
-import Navbar from './components/Navbar.jsx';
-import Home from './components/Home.jsx';
-import Productos from './components/Productos.jsx';
-import Ubicacion from './components/Ubicacion.jsx';
-import Contacto from './components/Contacto.jsx';
-import Footer from './components/Footer.jsx';
-import productos from './data/productos'; // Asegúrate de importar correctamente
+import Navbar from '../client/components/Navbar.js';
+import Home from '../client/components/Home.js';
+import Productos from '../client/components/Productos.jsx';
+import Ubicacion from '../client/components/Ubicacion.jsx';
+import Footer from '../client/components/Footer.js';
+import productos from '../client/data/productos.jsx'; // Asegúrate de importar correctamente
 
 function App() {
   const [productosList, setProductosList] = useState(productos); // Inicializa el estado con los productos
@@ -23,9 +22,7 @@ function App() {
       <section id="ubicacion">
         <Ubicacion />
       </section>
-      <section id="contacto">
-        <Contacto />
-      </section>
+      
       <Footer />
     </div>
   );
