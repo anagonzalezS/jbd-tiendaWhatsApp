@@ -1,0 +1,75 @@
+/* Fondo de la sección hero */
+.hero {
+    background-image: url('/public/img/fondo.png'); /* Asegúrate de que la ruta sea correcta */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+    color: white;
+  }
+  
+  /* Contenido principal (texto y botón) en el centro de la pantalla */
+  .main-content {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  /* Flecha hacia abajo */
+  .scroll-down {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    color: white;
+  }
+  
+  /* Estilo del navbar */
+  .navbar-dark .navbar-nav .nav-link {
+    color: white;
+    font-weight: bold;
+  }
+  
+  .navbar-dark .navbar-nav .nav-link:hover {
+    color: #ddd;
+  }
+  
+  /* Ajuste de colapsado del navbar para dispositivos móviles */
+  .navbar-collapse {
+    justify-content: flex-end;
+  }
+  
+  /* Responsividad para pantallas pequeñas */
+  @media (max-width: 768px) {
+    .main-content h1 {
+      font-size: 2rem; /* Ajusta el tamaño del título en dispositivos móviles */
+    }
+  
+    .main-content p {
+      font-size: 1.2rem; /* Ajusta el tamaño del párrafo en dispositivos móviles */
+    }
+  
+    
+  }
+  .scroll-down {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem; /* Tamaño de la flecha */
+    color: white; /* Asegúrate de que sea blanco */
+  }
+  
+  .scroll-down a {
+    color: white; /* Color del enlace */
+    text-decoration: none;
+  }
+  
+  .scroll-down a:hover {
+    color: #ddd; /* Color del enlace al pasar el mouse */
+  }
+  
